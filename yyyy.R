@@ -75,7 +75,8 @@ install.packages("lubridate")
        tr_price$label[i] <- laplace1
      }
    }
-   lm(label ~ ., data = ts_price)
+   m <- lm(label ~ ., data = ts_price)
+   model <- stepAIC(m)
    return(model)
  }
 
